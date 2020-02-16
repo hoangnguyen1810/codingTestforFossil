@@ -13,7 +13,7 @@ public class Car implements Runnable{
     private int wheels;
     private int doors;
     private int seats;
-    private int maxSpeed;
+    protected int maxSpeed;
 
     public Car(int wheels, int doors, int seats, int maxSpeed) {
         this.wheels = wheels;
