@@ -1,15 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hoangnguyen;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Hoang
  */
-public class Car {
+public class Car implements Runnable{
 
     private int wheels;
     private int doors;
@@ -30,9 +29,15 @@ public class Car {
         this.maxSpeed = maxSpeed;
     }
 
-    public void run() {
+    @Override
+    public void run(){
         for (int i = 0; i < 10; i++) {
             System.out.println(this.maxSpeed);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Car.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 

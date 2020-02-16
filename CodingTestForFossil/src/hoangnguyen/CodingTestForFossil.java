@@ -14,8 +14,11 @@ public class CodingTestForFossil {
         Car toyota = new Car(100);
         Car bmw = new Car(200);
 
-        toyota.run();
-        bmw.run();
+        Thread toyotaThread = new Thread(toyota);
+        Thread bmwThread = new Thread(bmw);
+
+        toyotaThread.start();
+        bmwThread.start();
     }
 
 }
