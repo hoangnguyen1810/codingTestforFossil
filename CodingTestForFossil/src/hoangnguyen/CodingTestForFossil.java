@@ -1,5 +1,7 @@
-
 package hoangnguyen;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,9 +18,14 @@ public class CodingTestForFossil {
 
         Thread toyotaThread = new Thread(toyota);
         Thread bmwThread = new Thread(bmw);
-
-        toyotaThread.start();
-        bmwThread.start();
+        
+        try {
+            toyotaThread.start();
+            toyotaThread.join();
+            bmwThread.start();
+            bmwThread.join();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CodingTestForFossil.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-
 }
